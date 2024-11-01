@@ -47,15 +47,15 @@ il gioco termina, stampando un messaggio opportuno.
 secret_number = 5
 input_number = None
 for attempt in range(1,6):
-    print(f'Tentativo numero {attempt}')
-    input_number = int(input('Indovina il numero, inserendo un valore da 0 a 9: '))
+    print(f'Tentativo numero {attempt}', end= ' | ')
+    input_number = int(input('Indovina il numero da 0 a 9: '))
     if input_number < 0 or input_number > 9:
-        print('Hai inserito un valore fuori range. Valori consentiti da 0 a 9!')
+        print('Fuori range')
     elif input_number == secret_number:
-        print('Hai indovinato il numero')
+        print('Hai indovinato!')
         break
     else:
-        print('Ritenta!')
+        print('Hai sbagliato!')
 else:
-   print('Troppi tentativi!')
+   print('Hai finito i tentativi.')
 print('Gioco terminato.')
