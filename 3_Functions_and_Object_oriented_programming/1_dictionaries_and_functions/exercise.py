@@ -14,40 +14,47 @@ chiedi di inserire la quantità
 e aggiornala sul dizionario.
 '''
 
-
 '''
+# crea il dizionario contenente la lista della spesa
+# key = prodotto da acquistare
+# value = quantità
 items = {
-    'fagioli':3,
-    'noci':2,
-    'mele':15
+    'formaggio':3,
+    'pasta':2,
+    'mozzarella':1,
+    'ananas':5
 }
 
-for key, value in items.items():
-    print(f"- {key} ({value} pezzi)")
+# stampa le coppie chiave-valore contenute nel dizionario 
+# con un - che precede ogni coppia
+for item,quantity in items.items():
+    print(f'- {item} - quantità: {quantity}')
 
-user_item = input("Aggiungi un articolo: ").lower().strip()
+# chiedi all'utente di aggiungere un nuovo elemento
+# utilizzando il metodo lower per renderlo minuscolo
+# e il metodo strip per rimuovere spazi non necessari
+user_item = input('Aggiungi un articolo: ').lower().strip()
+
+# se l'utente non inserisce nulla stampa messaggio di errore
 if not user_item:
-    print("Errore: Non hai inserito alcun articolo")
+    print('Errore! Non hai inserito nessun elemento.')
+# altrimenti verifica se il prodotto è già presente
 elif user_item in items:
-    print("Articolo già presente")
-    qta_item = input('Aggiungi quantità: ')
-    if not qta_item:
-        print("Errore: Non hai inserito la quantità per l'articolo")
-    else:
-        print(items[user_item])
-        items[user_item] = qta_item
-        print("Articolo aggiunto ✅")
+    # se l'articolo è già presente chiedi la nuova quantità e aggiornala
+    print('Articolo già presente')
+    user_quantity = int(input('Inserisci la quantità desiderata: ').strip())
+    items[user_item] = user_quantity
+    print('Articolo aggiornato')
 else:
-    qta_item = input('Aggiungi quantità: ')
-    if not qta_item:
-        print("Errore: Non hai inserito la quantità per l'articolo")
-    else:
-        items[user_item] = qta_item
-        print("Articolo aggiunto ✅")
-    
-for key, value in items.items():
-    print("-", key,value)
+    # altrimenti l'articolo non è presente 
+    # quindi aggiungilo al dizionario
+    user_quantity = int(input('Inserisci la quantità desiderata: ').strip())
+    items[user_item] = user_quantity
+    print('Articolo aggiunto')
 
+# stampa tutti gli elementi della lista
+for key,value in items.items():
+    print(f'- {key} - quantità: {value}')
 '''
 
 '''
@@ -66,23 +73,28 @@ Infine, chiama due volte la funzione,
 per valorizzare il campo età sui due dizionari.
 '''
 
-person_1 = {
-    'name':'Mario',
+user_1 = {
+    'first_name':'Mario',
+    'last_name':'Rossi',
+    'email':'mario.rossi@gmail.com',
     'age':None
 }
 
-person_2 = {
-    'name':'Gianni',
+user_2 = {
+    'first_name':'Giuseppe',
+    'last_name':'Verdi',
+    'email':'giuseppe.verdi@gmail.com',
     'age':None
 }
 
-def calculate_age(name, current_year):
-    birth_year = int(input(f'{name} inserisci l\'anno di nascita: '))
-    age = current_year - birth_year
-    return age
+def get_user_age(name, current_year):
+    birth_year = int(input(f'Ciao {name} inserisci il tuo anno di nascita: '))
+    if birth_year:
+        age = current_year - birth_year
+        return age
 
-person_1['age'] = calculate_age(person_1['name'], 2024)
-person_2['age'] = calculate_age(person_2['name'], 2024)
+users = [user_1, user_2]
 
-print(person_1['age'])
-print(person_2['age'])
+for user in users:
+    user['age'] = get_user_age(user['first_name'],2024)
+    print(f'L\'utente {user['first_name']} ha {user['age']} anni.')
