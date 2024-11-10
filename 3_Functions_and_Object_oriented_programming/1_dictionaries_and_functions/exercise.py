@@ -87,7 +87,7 @@ user_2 = {
     'age':None
 }
 
-def get_user_age(name, current_year):
+def calculate_age(name, current_year):
     birth_year = int(input(f'Ciao {name} inserisci il tuo anno di nascita: '))
     if birth_year:
         age = current_year - birth_year
@@ -96,5 +96,5 @@ def get_user_age(name, current_year):
 users = [user_1, user_2]
 
 for user in users:
-    user['age'] = get_user_age(user['first_name'],2024)
+    user['age'] = calculate_age(user['first_name'],2024)
     print(f'L\'utente {user['first_name']} ha {user['age']} anni.')
