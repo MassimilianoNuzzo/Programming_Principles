@@ -43,6 +43,7 @@ Per controprova, controlla anche il prezzo,
 sull'altro oggetto sia rimasto invariato.
 '''
 
+'''
 class Book:
 
     def __init__(self, title, author, year, price):
@@ -64,7 +65,7 @@ book_1.applay_discount(30)
 
 book_1.show_details()
 book_2.show_details()
-
+'''
 
 '''
 Crea una classe Pokemon coi seguenti attributi:
@@ -85,7 +86,6 @@ Dopo il combattimento, stampa la Salute
 di entrambi, per vedere se è coerente con gli attacchi.
 '''
 
-'''
 class Pokemon:
 
     def __init__(self, name, health, force, level, winner):
@@ -137,5 +137,5 @@ print(f'Salute {pokemon_2.name}: {pokemon_2.health}')
 print()
 
 print(f'Il pokemon vincitore è {winner_pokemon.name}!')
-'''
+
 
