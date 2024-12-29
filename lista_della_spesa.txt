@@ -1,0 +1,6 @@
+pasta
+birra
+carne
+pane
+coca-cola
+acqua
