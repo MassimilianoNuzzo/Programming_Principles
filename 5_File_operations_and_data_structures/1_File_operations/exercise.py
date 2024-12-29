@@ -102,7 +102,7 @@ def read_social_from_file():
 
 social_networks = read_social_from_file()
 with open('password_manager.json','a',encoding='utf-8') as json_file:
-    json.dump(social_networks, json_file)
+    json.dump(social_networks, json_file, ensure_ascii=False, indent=4)
 
 
         
